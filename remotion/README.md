@@ -67,3 +67,10 @@ Every video gets film grain, a drifting warm light leak, floating dust and a sof
 - `src/platform.tsx` holds the safe margins for each app (`SAFE`). Reels reserve more room at the top (header bar) and bottom (username, caption, audio), so captions and the channel mark sit a little higher on that version.
 - The lead-in before the first line is now 0.25s (was 0.7s), so the hook is on screen right away.
 - Use different wording in `endCards.youtube` and `endCards.meta`: the same question works for both only by accident.
+
+## Render on GitHub (no local setup)
+The workflow in `.github/workflows/render.yml` renders the videos on GitHub and gives you two downloads:
+- **`youtube-shorts`**: the `-youtube.mp4` files, ready for YouTube Shorts
+- **`instagram-facebook-reels`**: the `-reels.mp4` files, ready for Instagram and Facebook Reels
+
+How to run it: GitHub repo → **Actions** → **Render videos** → **Run workflow**. Leave the box on `all`, or type a story path such as `stories/001-papa-bus-pass.json`. When it finishes (a few minutes), open the run and download the two artifacts at the bottom of the page. It also runs by itself when you push a change inside `remotion/stories/`. Artifacts are kept for 30 days.

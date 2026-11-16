@@ -1,0 +1,104 @@
+name: Render videos
+
+# Renders each story twice and publishes two separate downloads:
+#   youtube-shorts            -> *-youtube.mp4  (YouTube Shorts end card)
+#   instagram-facebook-reels  -> *-reels.mp4    (Instagram / Facebook Reels end card)
+
+on:
+  workflow_dispatch:
+    inputs:
+      stories:
+        description: 'Story files to render, space-separated (e.g. stories/001-papa-bus-pass.json). Leave empty or type "all" for every story.'
+        required: false
+        default: 'all'
+  push:
+    paths:
+      - 'remotion/stories/**'
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: remotion
+    env:
+      STORIES_INPUT: ${{ inputs.stories }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: remotion/package-lock.json
+
+      - name: Install system libraries for headless Chrome
+        working-directory: .
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libgbm1 libasound2t64 \
+            libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 \
+            libpango-1.0-0 libcairo2 libcups2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Pick stories
+        id: pick
+        run: |
+          if [ -z "$STORIES_INPUT" ] || [ "$STORIES_INPUT" = "all" ]; then
+            LIST=$(ls stories/*.json | tr '\n' ' ')
+          else
+            LIST="$STORIES_INPUT"
+          fi
+          echo "Rendering: $LIST"
+          echo "list=$LIST" >> "$GITHUB_OUTPUT"
+
+      - name: Render (YouTube + Reels)
+        env:
+          LIST: ${{ steps.pick.outputs.list }}
+        run: npm run render -- $LIST
+
+      - name: Check both versions exist
+        run: |
+          ls -lh out/*.mp4
+          ls out/*-youtube.mp4 > /dev/null
+          ls out/*-reels.mp4 > /dev/null
+
+      - name: Summary
+        run: |
+          {
+            echo "### Rendered videos"
+            echo ""
+            echo "| File | Size |"
+            echo "|---|---|"
+            for f in out/*.mp4; do
+              echo "| \`$(basename "$f")\` | $(du -h "$f" | cut -f1) |"
+            done
+            echo ""
+            echo "Download them from **Artifacts** at the bottom of this page: \`youtube-shorts\` and \`instagram-facebook-reels\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload YouTube Shorts videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-shorts
+          path: remotion/out/*-youtube.mp4
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Instagram / Facebook Reels videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: instagram-facebook-reels
+          path: remotion/out/*-reels.mp4
+          if-no-files-found: error
+          retention-days: 30
