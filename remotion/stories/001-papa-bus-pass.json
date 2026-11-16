@@ -2,6 +2,7 @@
   "id": "001-papa-bus-pass",
   "style": "centered",
   "tint": "warm",
+  "audio": "audio/001.wav",
   "lines": [
     {
       "hook": true,
