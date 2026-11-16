@@ -1,13 +1,14 @@
 import React from 'react';
-import {AbsoluteFill, interpolate, random, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, interpolate, random, staticFile, useVideoConfig} from 'remotion';
+import {useF} from '../time';
 
 /** Film grain, a drifting warm light leak, fine floating dust and a soft vignette. */
 export const Cinematic: React.FC = () => {
-  const frame = useCurrentFrame();
+  const frame = useF();
   const {width, height} = useVideoConfig();
 
-  const gx = Math.floor(random(`gx-${frame}`) * 512);
-  const gy = Math.floor(random(`gy-${frame}`) * 512);
+  const gx = Math.floor(random(`gx-${Math.floor(frame)}`) * 512);
+  const gy = Math.floor(random(`gy-${Math.floor(frame)}`) * 512);
 
   const leakX = interpolate(Math.sin(frame / 110), [-1, 1], [-8, 28]);
   const leakA = 0.05 + 0.025 * Math.sin(frame / 70);

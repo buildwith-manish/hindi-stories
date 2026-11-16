@@ -1,5 +1,7 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, interpolate} from 'remotion';
+import {useF} from '../time';
+import {K} from '../timing';
 import type {StoryLine, Timeline} from '../types';
 import {handwriting} from '../fonts';
 import {useSafe} from '../platform';
@@ -10,13 +12,13 @@ export const Letter: React.FC<{lines: StoryLine[]; timeline: Timeline; title?: s
   timeline,
   title,
 }) => {
-  const frame = useCurrentFrame();
+  const frame = useF();
   const safe = useSafe();
   const paperIn = interpolate(frame, [0, 24], [0, 1], {
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.cubic),
   });
-  const paperOut = interpolate(frame, [timeline.endFrom - 14, timeline.endFrom], [1, 0], {
+  const paperOut = interpolate(frame, [timeline.endFrom / K - 14, timeline.endFrom / K], [1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -83,10 +85,11 @@ export const Letter: React.FC<{lines: StoryLine[]; timeline: Timeline; title?: s
         ) : null}
         {lines.map((line, i) => {
           const t = timeline.lines[i];
-          if (frame < t.from) return null;
-          const typeFrames = Math.max(10, t.duration * 0.62);
+          const from = t.from / K;
+          if (frame < from) return null;
+          const typeFrames = Math.max(10, (t.duration / K) * 0.62);
           const chars = Math.floor(
-            interpolate(frame - t.from, [0, typeFrames], [0, line.caption.length], {
+            interpolate(frame - from, [0, typeFrames], [0, line.caption.length], {
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',
             }),

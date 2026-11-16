@@ -74,3 +74,9 @@ The workflow in `.github/workflows/render.yml` renders the videos on GitHub and 
 - **`instagram-facebook-reels`**: the `-reels.mp4` files, ready for Instagram and Facebook Reels
 
 How to run it: GitHub repo → **Actions** → **Render videos** → **Run workflow**. Leave the box on `all`, or type a story path such as `stories/001-papa-bus-pass.json`. When it finishes (a few minutes), open the run and download the two artifacts at the bottom of the page. It also runs by itself when you push a change inside `remotion/stories/`. Artifacts are kept for 30 days.
+
+## Frame rate (60 fps)
+The video renders at **60 fps** (`FPS` in `src/timing.ts`). All motion constants in the components were written for 30 fps, so they are read through `useF()` (`src/time.ts`), which returns the frame in 30 fps units. Motion speed and timing are the same at any FPS; only smoothness changes.
+- New animations: use `useF()` instead of `useCurrentFrame()`, and multiply any real-frame counts by `K` (`FPS / 30`).
+- Prefer seconds-based timing (`seconds * FPS`) for new work.
+- Renders use `--crf=16 --pixel-format=yuv420p --audio-bitrate=320k`. 60 fps renders take roughly twice as long as 30 fps.

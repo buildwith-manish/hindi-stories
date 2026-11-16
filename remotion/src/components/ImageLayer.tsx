@@ -1,13 +1,16 @@
 import React from 'react';
-import {AbsoluteFill, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, Img, Sequence, interpolate, staticFile} from 'remotion';
+import {useF} from '../time';
+import {K} from '../timing';
 import type {StoryLine, Timeline} from '../types';
 
 const OVERLAP = 12;
 
 const Shot: React.FC<{line: StoryLine; duration: number; index: number}> = ({line, duration, index}) => {
-  const frame = useCurrentFrame();
+  const frame = useF();
+  const dur = duration / K;
   const peak = line.imageOpacity ?? 0.88;
-  const opacity = interpolate(frame, [0, OVERLAP, duration - OVERLAP, duration], [0, peak, peak, 0], {
+  const opacity = interpolate(frame, [0, OVERLAP, dur - OVERLAP, dur], [0, peak, peak, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.inOut(Easing.sin),
@@ -18,7 +21,7 @@ const Shot: React.FC<{line: StoryLine; duration: number; index: number}> = ({lin
   const [fx, fy] = m.focus ?? [0.5, 0.5];
   const from = m.from ?? (kind === 'pull' ? 1.24 : 1.04);
   const to = m.to ?? (kind === 'pull' ? 1.05 : 1.22);
-  const t = interpolate(frame, [0, duration], [0, 1], {easing: Easing.inOut(Easing.sin)});
+  const t = interpolate(frame, [0, dur], [0, 1], {easing: Easing.inOut(Easing.sin)});
   const scale = from + (to - from) * t;
   // drift: glide sideways while holding a steady zoom
   const dir = index % 2 === 0 ? 1 : -1;
@@ -93,10 +96,10 @@ export const ImageLayer: React.FC<{lines: StoryLine[]; timeline: Timeline}> = ({
       line.image ? (
         <Sequence
           key={i}
-          from={Math.max(0, timeline.lines[i].from - OVERLAP)}
-          durationInFrames={timeline.lines[i].duration + OVERLAP * 2}
+          from={Math.max(0, timeline.lines[i].from - OVERLAP * K)}
+          durationInFrames={timeline.lines[i].duration + OVERLAP * K * 2}
         >
-          <Shot line={line} duration={timeline.lines[i].duration + OVERLAP * 2} index={i} />
+          <Shot line={line} duration={timeline.lines[i].duration + OVERLAP * K * 2} index={i} />
         </Sequence>
       ) : null,
     )}

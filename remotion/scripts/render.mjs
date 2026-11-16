@@ -28,7 +28,7 @@ for (const file of files) {
     const propsFile = path.join('out', '.props', `${story.id}-${t.suffix}.json`);
     writeFileSync(propsFile, JSON.stringify({...story, platform: t.platform}));
     const output = path.join('out', `${story.id}-${t.suffix}.mp4`);
-    const cmd = ['remotion', 'render', 'src/index.ts', t.composition, output, `--props=${propsFile}`, '--crf=18'];
+    const cmd = ['remotion', 'render', 'src/index.ts', t.composition, output, `--props=${propsFile}`, '--crf=16', '--pixel-format=yuv420p', '--audio-bitrate=320k'];
     if (process.env.CHROME_PATH) cmd.push(`--browser-executable=${process.env.CHROME_PATH}`);
     console.log(`\nRendering ${file} (${t.platform}) -> ${output}`);
     const r = spawnSync('npx', cmd, {stdio: 'inherit', shell: process.platform === 'win32'});

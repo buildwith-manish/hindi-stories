@@ -1,5 +1,6 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, interpolate} from 'remotion';
+import {useF} from '../time';
 import {LogoMark} from './Logo';
 import {BookmarkIcon, PlusIcon, SendIcon} from './Icons';
 import {devanagari, serif, serifItalic} from '../fonts';
@@ -33,7 +34,7 @@ const Chip: React.FC<{icon: React.ReactNode; label: string}> = ({icon, label}) =
  * Held a little longer than the YouTube card, with extra bottom margin for the Reels caption area.
  */
 export const EndCardMeta: React.FC<{copy: EndCardCopy}> = ({copy}) => {
-  const frame = useCurrentFrame();
+  const frame = useF();
   const safe = useSafe();
   const ease = Easing.out(Easing.cubic);
   const step = (from: number, to: number) =>

@@ -30,7 +30,7 @@ export const RemotionRoot: React.FC = () => (
       width={1080}
       height={1920}
       fps={FPS}
-      durationInFrames={450}
+      durationInFrames={900}
       defaultProps={{...base, platform: 'youtube'} as StoryProps}
       calculateMetadata={calculateMetadata}
     />
@@ -40,7 +40,7 @@ export const RemotionRoot: React.FC = () => (
       width={1080}
       height={1920}
       fps={FPS}
-      durationInFrames={450}
+      durationInFrames={900}
       defaultProps={{...base, platform: 'meta'} as StoryProps}
       calculateMetadata={calculateMetadata}
     />

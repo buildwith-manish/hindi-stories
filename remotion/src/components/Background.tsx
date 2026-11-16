@@ -1,5 +1,7 @@
 import React from 'react';
-import {AbsoluteFill, Img, interpolate, random, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Img, interpolate, random, staticFile, useVideoConfig} from 'remotion';
+import {useF} from '../time';
+import {K} from '../timing';
 import type {Tint} from '../types';
 
 const TINTS: Record<Tint, {top: string; bottom: string; accent: string}> = {
@@ -11,11 +13,11 @@ const TINTS: Record<Tint, {top: string; bottom: string; accent: string}> = {
 const BOKEH_COUNT = 14;
 
 export const Background: React.FC<{tint: Tint; image?: string}> = ({tint, image}) => {
-  const frame = useCurrentFrame();
+  const frame = useF();
   const {durationInFrames, height} = useVideoConfig();
   const c = TINTS[tint];
 
-  const zoom = interpolate(frame, [0, durationInFrames], [1, 1.12]);
+  const zoom = interpolate(frame, [0, durationInFrames / K], [1, 1.12]);
   const breathe = 0.22 + 0.06 * Math.sin(frame / 38);
 
   return (

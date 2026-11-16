@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import type {StoryProps} from './types';
-import {FPS, buildTimeline} from './timing';
+import {FPS, K, buildTimeline} from './timing';
 import {Background} from './components/Background';
 import {EndCardYouTube} from './components/EndCardYouTube';
 import {EndCardMeta} from './components/EndCardMeta';
@@ -40,7 +40,7 @@ export const Story: React.FC<StoryProps> = (props) => {
           style={{
             background:
               'radial-gradient(ellipse 95% 24% at 50% 39%, rgba(12,4,12,0.62) 0%, rgba(12,4,12,0.38) 55%, transparent 100%)',
-            opacity: interpolate(frame, [timeline.endFrom - 8, timeline.endFrom + 6], [1, 0], {
+            opacity: interpolate(frame, [timeline.endFrom - 8 * K, timeline.endFrom + 6 * K], [1, 0], {
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',
             }),
@@ -76,7 +76,7 @@ export const Story: React.FC<StoryProps> = (props) => {
       <AbsoluteFill
         style={{
           backgroundColor: '#14060E',
-          opacity: interpolate(frame, [timeline.endFrom - 6, timeline.endFrom + 22], [0, 0.74], {
+          opacity: interpolate(frame, [timeline.endFrom - 6 * K, timeline.endFrom + 22 * K], [0, 0.74], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',
           }),
@@ -101,7 +101,7 @@ export const Story: React.FC<StoryProps> = (props) => {
           <Sequence key={`sfx-${i}`} from={start}>
             <Audio
               src={staticFile(cue.src)}
-              volume={(f) => vol * Math.min(1, Math.max(0, (durationInFrames - (start + f)) / 24))}
+              volume={(f) => vol * Math.min(1, Math.max(0, (durationInFrames - (start + f)) / (24 * K)))}
             />
           </Sequence>
         );
@@ -112,7 +112,7 @@ export const Story: React.FC<StoryProps> = (props) => {
           src={staticFile(props.music)}
           loop
           volume={(f) =>
-            interpolate(f, [0, 30, durationInFrames - 45, durationInFrames], [0, musicVolume, musicVolume, 0], {
+            interpolate(f, [0, 30 * K, durationInFrames - 45 * K, durationInFrames], [0, musicVolume, musicVolume, 0], {
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',
             })

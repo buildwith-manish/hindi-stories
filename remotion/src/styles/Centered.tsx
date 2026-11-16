@@ -1,5 +1,7 @@
 import React from 'react';
-import {AbsoluteFill, Easing, Sequence, interpolate, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, Sequence, interpolate} from 'remotion';
+import {useF} from '../time';
+import {K} from '../timing';
 import type {StoryLine, Timeline} from '../types';
 import {devanagari, serif, serifItalic} from '../fonts';
 import {useSafe} from '../platform';
@@ -7,12 +9,13 @@ import {useSafe} from '../platform';
 const normalise = (w: string) => w.toLowerCase().replace(/[^a-z0-9ऀ-ॿ']/gi, '');
 
 const Line: React.FC<{line: StoryLine; duration: number; isLast: boolean}> = ({line, duration, isLast}) => {
-  const frame = useCurrentFrame();
+  const frame = useF();
+  const dur = duration / K;
   const safe = useSafe();
   const words = line.caption.split(' ');
   const marked = new Set((line.highlight ?? []).map(normalise));
 
-  const outP = interpolate(frame, [duration - 14, duration], [0, 1], {
+  const outP = interpolate(frame, [dur - 14, dur], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.in(Easing.cubic),

@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, interpolateColors, random, useCurrentFrame} from 'remotion';
+import {K} from '../timing';
 import type {Timeline} from '../types';
 
 const W = 1080;
@@ -41,8 +42,10 @@ const Bird: React.FC<{i: number; frame: number; alpha: number}> = ({i, frame, al
  * The sun is almost hidden at the start and has cleared the hills by the final line.
  */
 export const Sunrise: React.FC<{timeline: Timeline}> = ({timeline}) => {
-  const frame = useCurrentFrame();
-  const p = interpolate(frame, [0, timeline.endFrom], [0, 1], {extrapolateRight: 'clamp'});
+  const realFrame = useCurrentFrame();
+  /** 30 fps-equivalent frame: keeps drift speeds and wobble rates the same at any FPS. */
+  const frame = realFrame / K;
+  const p = interpolate(realFrame, [0, timeline.endFrom], [0, 1], {extrapolateRight: 'clamp'});
 
   const skyTop = interpolateColors(p, [0, 0.55, 1], ['#150B27', '#35122F', '#6A2140']);
   const skyHorizon = interpolateColors(p, [0, 0.5, 1], ['#3B0E1D', '#8E3A2C', '#C97A45']);

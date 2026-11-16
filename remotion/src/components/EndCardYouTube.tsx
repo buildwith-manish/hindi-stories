@@ -1,5 +1,6 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, interpolate} from 'remotion';
+import {useF} from '../time';
 import {LogoMark} from './Logo';
 import {BellIcon, CommentIcon} from './Icons';
 import {devanagari, serif, serifItalic} from '../fonts';
@@ -12,7 +13,7 @@ import type {EndCardCopy} from '../types';
  * are what YouTube's Shorts feed rewards most, then a Subscribe button.
  */
 export const EndCardYouTube: React.FC<{copy: EndCardCopy}> = ({copy}) => {
-  const frame = useCurrentFrame();
+  const frame = useF();
   const safe = useSafe();
   const ease = Easing.out(Easing.cubic);
   const step = (from: number, to: number) =>

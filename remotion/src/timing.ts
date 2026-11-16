@@ -1,6 +1,11 @@
 import type {Platform, StoryInput, Timeline} from './types';
 
-export const FPS = 30;
+/** Output frame rate. */
+export const FPS = 60;
+/** The frame rate all motion constants (sine speeds, fade lengths, drift speeds) were authored at. */
+export const BASE_FPS = 30;
+/** Scale between output frames and authored frames: 2 at 60 fps. */
+export const K = FPS / BASE_FPS;
 /** Short lead-in: the hook is on screen almost at once, so a viewer can't swipe away before it starts. */
 export const INTRO_S = 0.25;
 /** YouTube's card is short: Shorts loop, and a long tail drags down how much of the video people watch. */
