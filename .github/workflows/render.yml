@@ -1,6 +1,7 @@
 name: Render videos
 
-# Renders each story twice and publishes two separate downloads:
+# Two parallel jobs, one per platform. Each job renders the WHOLE video in one piece
+# (60 fps, 4 browser tabs), so there are no joins or seams to go wrong:
 #   youtube-shorts            -> *-youtube.mp4  (YouTube Shorts end card)
 #   instagram-facebook-reels  -> *-reels.mp4    (Instagram / Facebook Reels end card)
 
@@ -14,14 +15,32 @@ on:
   push:
     paths:
       - 'remotion/stories/**'
+      - 'remotion/public/audio/001.wav'
 
 permissions:
   contents: read
 
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   render:
+    name: Render ${{ matrix.name }}
     runs-on: ubuntu-24.04
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: YouTube Shorts
+            only: youtube
+            suffix: youtube
+            artifact: youtube-shorts
+          - name: Instagram / Facebook Reels
+            only: meta
+            suffix: reels
+            artifact: instagram-facebook-reels
     defaults:
       run:
         working-directory: remotion
@@ -62,43 +81,46 @@ jobs:
           echo "Rendering: $LIST"
           echo "list=$LIST" >> "$GITHUB_OUTPUT"
 
-      - name: Render (YouTube + Reels)
+      - name: Render ${{ matrix.name }} (4 tabs)
         env:
           LIST: ${{ steps.pick.outputs.list }}
-        run: npm run render -- $LIST
+        run: npm run render -- $LIST --only=${{ matrix.only }} --concurrency=4
 
-      - name: Check both versions exist
+      - name: Check the video is healthy (60 fps, 1080x1920, has audio)
         run: |
-          ls -lh out/*.mp4
-          ls out/*-youtube.mp4 > /dev/null
-          ls out/*-reels.mp4 > /dev/null
+          shopt -s nullglob
+          files=(out/*-${{ matrix.suffix }}.mp4)
+          [ ${#files[@]} -gt 0 ] || { echo "No ${{ matrix.suffix }} video was produced"; exit 1; }
+          for f in "${files[@]}"; do
+            echo "== $f"
+            V=$(npx remotion ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,nb_frames -of csv=p=0 "$f")
+            A=$(npx remotion ffprobe -v error -select_streams a:0 -show_entries stream=codec_name,sample_rate -of csv=p=0 "$f")
+            D=$(npx remotion ffprobe -v error -show_entries format=duration -of csv=p=0 "$f")
+            echo "video: $V | audio: $A | duration: $D s"
+            case "$V" in 1080,1920,60/1,*) ;; *) echo "Expected 1080x1920 at 60 fps"; exit 1;; esac
+            [ -n "$A" ] || { echo "No audio track in $f"; exit 1; }
+            awk -v d="$D" 'BEGIN{exit !(d>20 && d<60)}' || { echo "Unexpected duration $D"; exit 1; }
+          done
+          ls -lh out/*-${{ matrix.suffix }}.mp4
 
       - name: Summary
         run: |
           {
-            echo "### Rendered videos"
+            echo "### ${{ matrix.name }}"
             echo ""
             echo "| File | Size |"
             echo "|---|---|"
-            for f in out/*.mp4; do
+            for f in out/*-${{ matrix.suffix }}.mp4; do
               echo "| \`$(basename "$f")\` | $(du -h "$f" | cut -f1) |"
             done
             echo ""
-            echo "Download them from **Artifacts** at the bottom of this page: \`youtube-shorts\` and \`instagram-facebook-reels\`."
+            echo "Download it from **Artifacts** at the bottom of this page: \`${{ matrix.artifact }}\`."
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload YouTube Shorts videos
+      - name: Upload ${{ matrix.name }} videos
         uses: actions/upload-artifact@v4
         with:
-          name: youtube-shorts
-          path: remotion/out/*-youtube.mp4
-          if-no-files-found: error
-          retention-days: 30
-
-      - name: Upload Instagram / Facebook Reels videos
-        uses: actions/upload-artifact@v4
-        with:
-          name: instagram-facebook-reels
-          path: remotion/out/*-reels.mp4
+          name: ${{ matrix.artifact }}
+          path: remotion/out/*-${{ matrix.suffix }}.mp4
           if-no-files-found: error
           retention-days: 30
