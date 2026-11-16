@@ -14,6 +14,24 @@ import {Sunrise} from './scenes/Sunrise';
 import {Letter} from './styles/Letter';
 import {serif} from './fonts';
 
+/**
+ * How loud background sound should be at `seconds` into the voiceover: 1 away from the voice,
+ * `floor` while it speaks. Eases down just before a phrase and back up just after it.
+ */
+const duckFactor = (seconds: number, spans: [number, number][] | undefined, floor: number) => {
+  if (!spans || spans.length === 0 || floor >= 1) return 1;
+  const ATTACK = 0.15;
+  const RELEASE = 0.45;
+  let dist = Infinity;
+  for (const [a, b] of spans) {
+    const d = seconds < a ? (a - seconds) * (RELEASE / ATTACK) : seconds > b ? seconds - b : 0;
+    if (d < dist) dist = d;
+  }
+  const x = Math.min(1, dist / RELEASE);
+  const eased = x * x * (3 - 2 * x);
+  return floor + (1 - floor) * eased;
+};
+
 export const Story: React.FC<StoryProps> = (props) => {
   const {durationInFrames} = useVideoConfig();
   const frame = useCurrentFrame();
@@ -22,6 +40,10 @@ export const Story: React.FC<StoryProps> = (props) => {
   const endCopy = resolveEndCopy(props, platform);
   const endCardFrames = timeline.total - timeline.endFrom;
   const musicVolume = props.musicVolume ?? 0.16;
+  const musicDuck = props.musicDuck ?? 1;
+  const sfxDuck = props.sfxDuck ?? 1;
+  const duckAt = (absFrame: number, floor: number) =>
+    duckFactor((absFrame - timeline.audioFrom) / FPS, props.voiceSpans, floor);
 
   return (
     <PlatformProvider value={platform}>
@@ -89,7 +111,7 @@ export const Story: React.FC<StoryProps> = (props) => {
 
       {props.audio ? (
         <Sequence from={timeline.audioFrom}>
-          <Audio src={staticFile(props.audio)} />
+          <Audio src={staticFile(props.audio)} volume={props.voiceVolume ?? 1} />
         </Sequence>
       ) : null}
 
@@ -101,7 +123,7 @@ export const Story: React.FC<StoryProps> = (props) => {
           <Sequence key={`sfx-${i}`} from={start}>
             <Audio
               src={staticFile(cue.src)}
-              volume={(f) => vol * Math.min(1, Math.max(0, (durationInFrames - (start + f)) / (24 * K)))}
+              volume={(f) => vol * duckAt(start + f, sfxDuck) * Math.min(1, Math.max(0, (durationInFrames - (start + f)) / (24 * K)))}
             />
           </Sequence>
         );
@@ -112,6 +134,7 @@ export const Story: React.FC<StoryProps> = (props) => {
           src={staticFile(props.music)}
           loop
           volume={(f) =>
+            duckAt(f, musicDuck) *
             interpolate(f, [0, 30 * K, durationInFrames - 45 * K, durationInFrames], [0, musicVolume, musicVolume, 0], {
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',

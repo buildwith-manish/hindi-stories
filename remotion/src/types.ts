@@ -75,6 +75,14 @@ export type StoryInput = {
   /** Background music file inside public/ */
   music?: string;
   musicVolume?: number;
+  /** Music level while the voice is speaking, as a share of musicVolume (0.5 = half). Needs voiceSpans. */
+  musicDuck?: number;
+  /** Same for sound effects (1 = no ducking). */
+  sfxDuck?: number;
+  /** When the voice is speaking, in seconds from the start of the voiceover file: [[start, end], ...] */
+  voiceSpans?: [number, number][];
+  /** Voiceover volume, 0-1. Default 1. */
+  voiceVolume?: number;
   /** Optional background image inside public/ (shown softly behind the text) */
   background?: string;
   /** A separate end card for each platform. Anything left out falls back to endLine / endSub / endFollow. */
