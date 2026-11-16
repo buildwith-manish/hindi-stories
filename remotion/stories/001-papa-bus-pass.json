@@ -108,7 +108,7 @@
   ],
   "scene": "sunrise",
   "music": "audio/music-warm-01.mp3",
-  "musicVolume": 0.22,
+  "musicVolume": 0.12,
   "sfx": [
     {
       "src": "audio/sfx/hit.mp3",
