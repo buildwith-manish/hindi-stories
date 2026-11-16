@@ -1,0 +1,37 @@
+// Usage: npm run render -- stories/001-papa-bus-pass.json [more.json ...] [--only=youtube|meta]
+// Renders each story twice (1080x1920, H.264), once per platform:
+//   out/<id>-youtube.mp4   YouTube Shorts (comment + Subscribe end card)
+//   out/<id>-reels.mp4     Instagram Reels / Facebook Reels (Send + Save + Follow end card)
+import {spawnSync} from 'node:child_process';
+import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+import path from 'node:path';
+
+const args = process.argv.slice(2);
+const files = args.filter((a) => !a.startsWith('--'));
+const only = args.find((a) => a.startsWith('--only='))?.split('=')[1];
+
+if (files.length === 0 || (only && !['youtube', 'meta'].includes(only))) {
+  console.error('Usage: npm run render -- stories/001-papa-bus-pass.json [more.json ...] [--only=youtube|meta]');
+  process.exit(1);
+}
+
+const TARGETS = [
+  {platform: 'youtube', composition: 'StoryYouTube', suffix: 'youtube'},
+  {platform: 'meta', composition: 'StoryMeta', suffix: 'reels'},
+].filter((t) => !only || t.platform === only);
+
+mkdirSync('out/.props', {recursive: true});
+
+for (const file of files) {
+  const story = JSON.parse(readFileSync(file, 'utf8'));
+  for (const t of TARGETS) {
+    const propsFile = path.join('out', '.props', `${story.id}-${t.suffix}.json`);
+    writeFileSync(propsFile, JSON.stringify({...story, platform: t.platform}));
+    const output = path.join('out', `${story.id}-${t.suffix}.mp4`);
+    const cmd = ['remotion', 'render', 'src/index.ts', t.composition, output, `--props=${propsFile}`, '--crf=18'];
+    if (process.env.CHROME_PATH) cmd.push(`--browser-executable=${process.env.CHROME_PATH}`);
+    console.log(`\nRendering ${file} (${t.platform}) -> ${output}`);
+    const r = spawnSync('npx', cmd, {stdio: 'inherit', shell: process.platform === 'win32'});
+    if (r.status !== 0) process.exit(r.status ?? 1);
+  }
+}

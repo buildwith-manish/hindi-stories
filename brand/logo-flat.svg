@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7A2236"/>
+      <stop offset="1" stop-color="#3E0F1E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFB347" stop-opacity="0.75"/>
+      <stop offset="0.55" stop-color="#F5762E" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#F5762E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#FFD27A"/>
+      <stop offset="1" stop-color="#F5762E"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="n"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.85  0 0 0 0 0.62  0 0 0 0.55 -0.12"/>
+    </filter>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="4" seed="3"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.2  0 0 0 0 0.04  0 0 0 0 0.08  0 0 0 0.9 -0.25"/>
+    </filter>
+    <pattern id="weave" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M0 5 H10" stroke="#FFD9A0" stroke-opacity="0.035" stroke-width="1"/>
+      <path d="M5 0 V10" stroke="#FFD9A0" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="vig" cx="0.5" cy="0.5" r="0.72">
+      <stop offset="0.55" stop-color="#1E0610" stop-opacity="0"/>
+      <stop offset="1" stop-color="#1E0610" stop-opacity="0.7"/>
+    </radialGradient>
+  </defs>
+
+  <!-- full-bleed square; YouTube crops this to a circle -->
+  <rect width="800" height="800" fill="url(#bg)"/>
+
+  <!-- texture: mottled paper tone, cloth weave, fine grain, edge vignette -->
+  <rect width="800" height="800" filter="url(#paper)" opacity="0.55"/>
+  <rect width="800" height="800" fill="url(#weave)"/>
+  <rect width="800" height="800" filter="url(#grain)" opacity="0.16"/>
+  <rect width="800" height="800" fill="url(#vig)"/>
+
+  <!-- warm glow behind the flame -->
+  <circle cx="400" cy="500" r="230" fill="url(#glow)"/>
+
+  <!-- house: walls + roof in one soft cream line -->
+  <g fill="none" stroke="#FBE8C8" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M252 418 V548 Q252 574 278 574 H522 Q548 574 548 548 V418"/>
+    <path d="M200 432 L400 246 L600 432"/>
+  </g>
+
+  <!-- flame (diya light) -->
+  <path d="M400 408 C437 452 463 484 463 518 C463 548 436 566 400 566 C364 566 337 548 337 518 C337 484 363 452 400 408 Z" fill="url(#flame)"/>
+  <path d="M400 478 C418 500 430 515 430 534 C430 551 416 560 400 560 C384 560 370 551 370 534 C370 515 382 500 400 478 Z" fill="#FFF3D6" opacity="0.92"/>
+</svg>
