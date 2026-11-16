@@ -61,6 +61,24 @@ export type StoryLine = {
   seconds?: number;
 };
 
+/** The cover image: two big lines over the picture, shown as the very last frames of the video and exported as a PNG. */
+export type ThumbnailCopy = {
+  /** Top line, e.g. "Papa never told me." */
+  line1: string;
+  /** Bottom line, e.g. "His old bus pass did." */
+  line2: string;
+  /** Words of line2 shown in gold with an underline. */
+  highlight?: string[];
+  /** Small Devanagari line under it. */
+  sub?: string;
+  /** Picture inside public/. Default images/001-drawer.jpg */
+  image?: string;
+  /** Point (0..1, 0..1) of the picture to keep in the centre. */
+  focus?: [number, number];
+  /** How long the cover stays on the last frames of the video (0 = leave it out). Default 1. */
+  seconds?: number;
+};
+
 export type StoryInput = {
   id: string;
   style: StyleName;
@@ -97,12 +115,16 @@ export type StoryInput = {
   sfx?: SfxCue[];
   /** Extra seconds to hold the final line (the emotional pause). Default 1.2 */
   finalHold?: number;
+  /** Cover image shown at the very end (so it can be picked as the thumbnail) and exported as a PNG. */
+  thumbnail?: ThumbnailCopy;
 };
 
 export type Timeline = {
   lines: {from: number; duration: number}[];
   audioFrom: number;
   endFrom: number;
+  /** First frame of the cover image, if the story has one. */
+  thumbFrom?: number;
   total: number;
 };
 

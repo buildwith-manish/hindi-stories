@@ -219,5 +219,20 @@
       "sub": "उसे भेजिए, जिसने कभी कहा नहीं।",
       "cta": "Follow for a new unsaid story"
     }
+  },
+  "thumbnail": {
+    "line1": "Papa never told me.",
+    "line2": "His old bus pass did.",
+    "highlight": [
+      "bus",
+      "pass"
+    ],
+    "sub": "पापा ने कभी बताया नहीं।",
+    "image": "images/001-drawer.jpg",
+    "focus": [
+      0.47,
+      0.54
+    ],
+    "seconds": 1
   }
 }

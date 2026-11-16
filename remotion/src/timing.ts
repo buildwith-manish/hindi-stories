@@ -46,10 +46,14 @@ export const buildTimeline = (story: StoryInput, audioSeconds?: number, platform
     return entry;
   });
 
+  const endCardEnd = cursor + Math.round(END_CARD_S[platform] * FPS);
+  const thumbFrames = story.thumbnail ? Math.round((story.thumbnail.seconds ?? 1) * FPS) : 0;
+
   return {
     lines,
     audioFrom: intro,
     endFrom: cursor,
-    total: cursor + Math.round(END_CARD_S[platform] * FPS),
+    thumbFrom: thumbFrames > 0 ? endCardEnd : undefined,
+    total: endCardEnd + thumbFrames,
   };
 };

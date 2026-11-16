@@ -117,6 +117,15 @@ jobs:
             echo "Download it from **Artifacts** at the bottom of this page: \`${{ matrix.artifact }}\`."
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Upload cover image (thumbnail)
+        if: matrix.only == 'youtube'
+        uses: actions/upload-artifact@v4
+        with:
+          name: thumbnail
+          path: remotion/out/*-thumbnail.png
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Upload ${{ matrix.name }} videos
         uses: actions/upload-artifact@v4
         with:

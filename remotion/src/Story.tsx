@@ -7,6 +7,7 @@ import {EndCardYouTube} from './components/EndCardYouTube';
 import {EndCardMeta} from './components/EndCardMeta';
 import {PlatformProvider, SAFE, resolveEndCopy} from './platform';
 import {LogoMark} from './components/Logo';
+import {ThumbnailFrame} from './components/ThumbnailFrame';
 import {Centered} from './styles/Centered';
 import {Cinematic} from './components/Cinematic';
 import {ImageLayer} from './components/ImageLayer';
@@ -38,7 +39,7 @@ export const Story: React.FC<StoryProps> = (props) => {
   const platform = props.platform ?? 'youtube';
   const timeline = props.timeline ?? buildTimeline(props, undefined, platform);
   const endCopy = resolveEndCopy(props, platform);
-  const endCardFrames = timeline.total - timeline.endFrom;
+  const endCardFrames = (timeline.thumbFrom ?? timeline.total) - timeline.endFrom;
   const musicVolume = props.musicVolume ?? 0.16;
   const musicDuck = props.musicDuck ?? 1;
   const sfxDuck = props.sfxDuck ?? 1;
@@ -108,6 +109,21 @@ export const Story: React.FC<StoryProps> = (props) => {
       <Sequence from={timeline.endFrom} durationInFrames={endCardFrames}>
         {platform === 'meta' ? <EndCardMeta copy={endCopy} /> : <EndCardYouTube copy={endCopy} />}
       </Sequence>
+
+      {props.thumbnail && timeline.thumbFrom !== undefined ? (
+        <Sequence from={timeline.thumbFrom} durationInFrames={timeline.total - timeline.thumbFrom}>
+          <AbsoluteFill
+            style={{
+              opacity: interpolate(frame - timeline.thumbFrom, [0, 6 * K], [0, 1], {
+                extrapolateLeft: 'clamp',
+                extrapolateRight: 'clamp',
+              }),
+            }}
+          >
+            <ThumbnailFrame copy={props.thumbnail} />
+          </AbsoluteFill>
+        </Sequence>
+      ) : null}
 
       {props.audio ? (
         <Sequence from={timeline.audioFrom}>

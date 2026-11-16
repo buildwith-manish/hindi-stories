@@ -2,6 +2,7 @@
 // Renders each story twice (1080x1920, H.264), once per platform:
 //   out/<id>-youtube.mp4   YouTube Shorts (comment + Subscribe end card)
 //   out/<id>-reels.mp4     Instagram Reels / Facebook Reels (Send + Save + Follow end card)
+//   out/<id>-thumbnail.png cover image (if the story has a "thumbnail"), made with the YouTube render
 import {spawnSync} from 'node:child_process';
 import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
@@ -39,5 +40,15 @@ for (const file of files) {
     console.log(`\nRendering ${file} (${t.platform}) -> ${output}`);
     const r = spawnSync('npx', cmd, {stdio: 'inherit', shell: process.platform === 'win32'});
     if (r.status !== 0) process.exit(r.status ?? 1);
+
+    // The cover image as a PNG (same picture as the last frames of the video). Made once per story, with the YouTube render.
+    if (t.platform === 'youtube' && story.thumbnail) {
+      const thumb = path.join('out', `${story.id}-thumbnail.png`);
+      const tcmd = ['remotion', 'still', 'src/index.ts', 'Thumbnail', thumb, `--props=${propsFile}`];
+      if (process.env.CHROME_PATH) tcmd.push(`--browser-executable=${process.env.CHROME_PATH}`);
+      console.log(`Rendering cover image -> ${thumb}`);
+      const rt = spawnSync('npx', tcmd, {stdio: 'inherit', shell: process.platform === 'win32'});
+      if (rt.status !== 0) process.exit(rt.status ?? 1);
+    }
   }
 }
