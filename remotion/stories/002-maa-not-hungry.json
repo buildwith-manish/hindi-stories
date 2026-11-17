@@ -2,8 +2,9 @@
   "id": "002-maa-not-hungry",
   "style": "centered",
   "tint": "warm",
+  "audio": "audio/002.wav",
   "music": "audio/music-warm-01.mp3",
-  "musicVolume": 0.12,
+  "musicVolume": 0.16,
   "lines": [
     {
       "hook": true,
@@ -23,7 +24,8 @@
         ],
         "from": 1.22,
         "to": 1.05
-      }
+      },
+      "seconds": 3.23
     },
     {
       "voice": "Rotiyan chaar banti thin. Hum teen the.",
@@ -42,7 +44,8 @@
         ],
         "from": 1.04,
         "to": 1.2
-      }
+      },
+      "seconds": 2.8
     },
     {
       "voice": "Woh pehle hamein khilati thi. Phir kehti... main baad mein kha loongi.",
@@ -61,7 +64,8 @@
         ],
         "from": 1.12,
         "to": 1.12
-      }
+      },
+      "seconds": 4.75
     },
     {
       "voice": "Mujhe saalon baad samajh aaya...",
@@ -78,7 +82,8 @@
         ],
         "from": 1.02,
         "to": 1.16
-      }
+      },
+      "seconds": 2.23
     },
     {
       "voice": "Usse bhookh nahi thi... usse bas hamara pet bharna tha.",
@@ -97,7 +102,8 @@
         ],
         "from": 1.05,
         "to": 1.24
-      }
+      },
+      "seconds": 4.98
     },
     {
       "voice": "Maa ne kabhi kaha nahi... par maine sab sun liya.",
@@ -115,7 +121,8 @@
         ],
         "from": 1.24,
         "to": 1.05
-      }
+      },
+      "seconds": 3.5
     }
   ],
   "sfx": [
@@ -175,5 +182,17 @@
       0.5,
       0.62
     ]
-  }
+  },
+  "musicDuck": 0.5,
+  "sfxDuck": 0.65,
+  "voiceSpans": [
+    [
+      0.0,
+      10.1
+    ],
+    [
+      10.84,
+      21.36
+    ]
+  ]
 }

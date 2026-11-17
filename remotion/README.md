@@ -80,3 +80,6 @@ The video renders at **60 fps** (`FPS` in `src/timing.ts`). All motion constants
 - New animations: use `useF()` instead of `useCurrentFrame()`, and multiply any real-frame counts by `K` (`FPS / 30`).
 - Prefer seconds-based timing (`seconds * FPS`) for new work.
 - Renders use `--crf=16 --pixel-format=yuv420p --audio-bitrate=320k`. 60 fps renders take roughly twice as long as 30 fps.
+
+## Voiceover prep
+`python3 scripts/prepare-voice.py in.mp3 public/audio/00X.wav 0.6,0.5,...` shortens over-long pauses (gap targets in seconds, one per silent gap), compresses lightly and normalises to about -15.4 LUFS, without changing any word. It prints the speech spans; use them for each line's `seconds` and for `voiceSpans`. Keep the untouched original in `voiceover-originals/`.
