@@ -5,7 +5,7 @@ import {Story} from './Story';
 import {ThumbnailFrame} from './components/ThumbnailFrame';
 import {FPS, buildTimeline} from './timing';
 import type {StoryInput, StoryProps} from './types';
-import story001 from '../stories/001-papa-bus-pass.json';
+import story from '../stories/002-maa-not-hungry.json';
 
 const calculateMetadata: CalculateMetadataFunction<StoryProps> = async ({props}) => {
   let audioSeconds: number | undefined;
@@ -20,7 +20,7 @@ const calculateMetadata: CalculateMetadataFunction<StoryProps> = async ({props})
   return {durationInFrames: timeline.total, props: {...props, timeline}};
 };
 
-const base = story001 as StoryInput;
+const base = story as StoryInput;
 
 /** The cover on its own, for `remotion still`. */
 const ThumbnailStill: React.FC<StoryProps> = ({thumbnail}) => (thumbnail ? <ThumbnailFrame copy={thumbnail} /> : null);

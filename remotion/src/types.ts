@@ -71,7 +71,7 @@ export type ThumbnailCopy = {
   highlight?: string[];
   /** Small Devanagari line under it. */
   sub?: string;
-  /** Picture inside public/. Default images/001-drawer.jpg */
+  /** Picture inside public/. Optional: with no picture the cover is text on a dark background */
   image?: string;
   /** Point (0..1, 0..1) of the picture to keep in the centre. */
   focus?: [number, number];
@@ -88,7 +88,7 @@ export type StoryInput = {
   /** Letter style only: the salutation at the top, e.g. "Dear Papa," */
   title?: string;
   lines: StoryLine[];
-  /** Voiceover file inside public/, e.g. "audio/001.mp3" */
+  /** Voiceover file inside public/, e.g. "audio/002.wav" */
   audio?: string;
   /** Background music file inside public/ */
   music?: string;

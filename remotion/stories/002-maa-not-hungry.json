@@ -1,0 +1,71 @@
+{
+  "id": "002-maa-not-hungry",
+  "style": "centered",
+  "tint": "warm",
+  "music": "audio/music-warm-01.mp3",
+  "musicVolume": 0.12,
+  "lines": [
+    {
+      "hook": true,
+      "voice": "Maa hamesha kehti thi... mujhe bhookh nahi hai.",
+      "caption": "Maa always said she wasn't hungry.",
+      "highlight": ["hungry"],
+      "sub": "माँ हमेशा कहती थी... मुझे भूख नहीं है।"
+    },
+    {
+      "voice": "Rotiyan chaar banti thin. Hum teen the.",
+      "caption": "Four rotis were made. There were three of us.",
+      "highlight": ["four", "three"],
+      "sub": "रोटियाँ चार बनती थीं। हम तीन थे।"
+    },
+    {
+      "voice": "Woh pehle hamein khilati thi. Phir kehti... main baad mein kha loongi.",
+      "caption": "She fed us first. Then she'd say, \"I'll eat later.\"",
+      "highlight": ["later"],
+      "sub": "वो पहले हमें खिलाती थी। फिर कहती... मैं बाद में खा लूँगी।"
+    },
+    {
+      "voice": "Mujhe saalon baad samajh aaya...",
+      "caption": "It took me years to understand.",
+      "sub": "मुझे सालों बाद समझ आया..."
+    },
+    {
+      "voice": "Usse bhookh nahi thi... usse bas hamara pet bharna tha.",
+      "caption": "She wasn't hungry. She just wanted us full.",
+      "highlight": ["full"],
+      "sub": "उसे भूख नहीं थी... उसे बस हमारा पेट भरना था।"
+    },
+    {
+      "voice": "Maa ne kabhi kaha nahi... par maine sab sun liya.",
+      "caption": "Maa never said it. But I heard everything.",
+      "highlight": ["heard"],
+      "sub": "माँ ने कभी कहा नहीं... पर मैंने सब सुन लिया।"
+    }
+  ],
+  "sfx": [
+    {"src": "audio/sfx/hit.mp3", "line": 0, "at": 0.0, "volume": 0.5},
+    {"src": "audio/sfx/whoosh-air.mp3", "line": 1, "at": 0.0, "volume": 0.35},
+    {"src": "audio/sfx/whoosh-air.mp3", "line": 3, "at": 0.0, "volume": 0.3},
+    {"src": "audio/sfx/warm-swell.mp3", "line": 5, "at": 0.0, "volume": 0.5},
+    {"src": "audio/sfx/chime.mp3", "line": "end", "at": 0.05, "volume": 0.5}
+  ],
+  "endCards": {
+    "youtube": {
+      "line": "Aapki Maa ne kab kaha tha: mujhe bhookh nahi hai? Tell us in the comments.",
+      "sub": "आपकी माँ ने कब कहा था — मुझे भूख नहीं है?",
+      "cta": "Subscribe for the next unsaid story"
+    },
+    "meta": {
+      "line": "Send this to your Maa.",
+      "sub": "इसे उसे भेजिए, जिसने आपके लिए भूख छोड़ दी।",
+      "cta": "Follow for a new unsaid story"
+    }
+  },
+  "thumbnail": {
+    "line1": "Maa always said",
+    "line2": "she wasn't hungry.",
+    "highlight": ["hungry."],
+    "sub": "माँ ने कहा था, मुझे भूख नहीं है।",
+    "seconds": 0
+  }
+}

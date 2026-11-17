@@ -1,10 +1,10 @@
-// Usage: npm run voice -- stories/001-papa-bus-pass.json
+// Usage: npm run voice -- stories/002-maa-not-hungry.json
 // Prints the voice text, one line per row, ready to paste into a text-to-speech tool.
 import {readFileSync} from 'node:fs';
 
 const file = process.argv[2];
 if (!file) {
-  console.error('Usage: npm run voice -- stories/001-papa-bus-pass.json');
+  console.error('Usage: npm run voice -- stories/002-maa-not-hungry.json');
   process.exit(1);
 }
 const story = JSON.parse(readFileSync(file, 'utf8'));

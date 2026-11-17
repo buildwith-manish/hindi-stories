@@ -9,13 +9,13 @@ on:
   workflow_dispatch:
     inputs:
       stories:
-        description: 'Story files to render, space-separated (e.g. stories/001-papa-bus-pass.json). Leave empty or type "all" for every story.'
+        description: 'Story files to render, space-separated (e.g. stories/002-maa-not-hungry.json). Leave empty or type "all" for every story.'
         required: false
         default: 'all'
   push:
     paths:
       - 'remotion/stories/**'
-      - 'remotion/public/audio/001.wav'
+      - 'remotion/public/audio/**'
 
 permissions:
   contents: read

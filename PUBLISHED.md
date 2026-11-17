@@ -26,4 +26,15 @@ Log of every video uploaded, with the git tag that pins the exact project state 
 
 **Takeaways:** about 55% swiped away at the start and the 0:14 average means most viewers left around the middle. Next videos: faster hook (voice from frame 1), shorter (about 20 s), stronger payoff, end card about 1.5 s.
 
-**Keep the voiceover:** `001.wav` is committed in the repo and pinned by the `short-001` tag, so it can never be lost by later edits. Name future voiceovers `002.wav`, `003.wav`, and so on. Never overwrite an old one.
+**Where the Short #1 files are now:** removed from `main` to keep it clean for Short #2, but nothing is lost. The story JSON, `001.wav` voiceover, the three images and its sound effects (bus-distant, drawer-slide, coin-clink, paper-rustle) all live in the `short-001` tag. Restore any of them with `git checkout short-001 -- <path>`, or re-render the whole video from `git checkout short-001`.
+
+**Rule:** name each voiceover `002.wav`, `003.wav` and so on. Never overwrite an old one.
+
+## Short #2 — Maa said she wasn't hungry  (in progress)
+
+| | |
+|---|---|
+| Story file | `remotion/stories/002-maa-not-hungry.json` (script, captions, sound effects, end cards ready) |
+| Still needed | voiceover `remotion/public/audio/002.wav`, images in `remotion/public/images/002-*.jpg`, then add `"audio"` and image lines to the JSON |
+| Target | about 20 s, voice from the first frame, end card about 1.5 s |
+| Git tag | add `short-002` when uploaded |

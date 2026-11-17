@@ -19,19 +19,21 @@ export const ThumbnailFrame: React.FC<{copy: ThumbnailCopy}> = ({copy}) => {
 
   return (
     <AbsoluteFill style={{backgroundColor: '#14060E'}}>
-      <AbsoluteFill style={{overflow: 'hidden'}}>
-        <Img
-          src={staticFile(copy.image ?? 'images/001-drawer.jpg')}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'scale(1.14)',
-            transformOrigin: `${fx * 100}% ${fy * 100}%`,
-            filter: 'brightness(1.08) contrast(1.08) saturate(1.1)',
-          }}
-        />
-      </AbsoluteFill>
+      {copy.image ? (
+        <AbsoluteFill style={{overflow: 'hidden'}}>
+          <Img
+            src={staticFile(copy.image)}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              transform: 'scale(1.14)',
+              transformOrigin: `${fx * 100}% ${fy * 100}%`,
+              filter: 'brightness(1.08) contrast(1.08) saturate(1.1)',
+            }}
+          />
+        </AbsoluteFill>
+      ) : null}
 
       {/* warm pool of light on the pass */}
       <AbsoluteFill
