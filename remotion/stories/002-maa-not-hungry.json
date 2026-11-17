@@ -9,45 +9,146 @@
       "hook": true,
       "voice": "Maa hamesha kehti thi... mujhe bhookh nahi hai.",
       "caption": "Maa always said she wasn't hungry.",
-      "highlight": ["hungry"],
-      "sub": "माँ हमेशा कहती थी... मुझे भूख नहीं है।"
+      "highlight": [
+        "hungry"
+      ],
+      "sub": "माँ हमेशा कहती थी... मुझे भूख नहीं है।",
+      "image": "images/002-01-stove.jpg",
+      "imageOpacity": 0.9,
+      "motion": {
+        "kind": "pull",
+        "focus": [
+          0.5,
+          0.28
+        ],
+        "from": 1.22,
+        "to": 1.05
+      }
     },
     {
       "voice": "Rotiyan chaar banti thin. Hum teen the.",
       "caption": "Four rotis were made. There were three of us.",
-      "highlight": ["four", "three"],
-      "sub": "रोटियाँ चार बनती थीं। हम तीन थे।"
+      "highlight": [
+        "four",
+        "three"
+      ],
+      "sub": "रोटियाँ चार बनती थीं। हम तीन थे।",
+      "image": "images/002-02-rotis.jpg",
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.74
+        ],
+        "from": 1.04,
+        "to": 1.2
+      }
     },
     {
       "voice": "Woh pehle hamein khilati thi. Phir kehti... main baad mein kha loongi.",
       "caption": "She fed us first. Then she'd say, \"I'll eat later.\"",
-      "highlight": ["later"],
-      "sub": "वो पहले हमें खिलाती थी। फिर कहती... मैं बाद में खा लूँगी।"
+      "highlight": [
+        "later"
+      ],
+      "sub": "वो पहले हमें खिलाती थी। फिर कहती... मैं बाद में खा लूँगी।",
+      "image": "images/002-03-serving.jpg",
+      "flicker": true,
+      "motion": {
+        "kind": "drift",
+        "focus": [
+          0.4,
+          0.7
+        ],
+        "from": 1.12,
+        "to": 1.12
+      }
     },
     {
       "voice": "Mujhe saalon baad samajh aaya...",
       "caption": "It took me years to understand.",
-      "sub": "मुझे सालों बाद समझ आया..."
+      "sub": "मुझे सालों बाद समझ आया...",
+      "image": "images/002-04-years-later.jpg",
+      "mist": true,
+      "imageOpacity": 0.82,
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.78
+        ],
+        "from": 1.02,
+        "to": 1.16
+      }
     },
     {
       "voice": "Usse bhookh nahi thi... usse bas hamara pet bharna tha.",
       "caption": "She wasn't hungry. She just wanted us full.",
-      "highlight": ["full"],
-      "sub": "उसे भूख नहीं थी... उसे बस हमारा पेट भरना था।"
+      "highlight": [
+        "full"
+      ],
+      "sub": "उसे भूख नहीं थी... उसे बस हमारा पेट भरना था।",
+      "image": "images/002-05-alone.jpg",
+      "flicker": true,
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.72
+        ],
+        "from": 1.05,
+        "to": 1.24
+      }
     },
     {
       "voice": "Maa ne kabhi kaha nahi... par maine sab sun liya.",
       "caption": "Maa never said it. But I heard everything.",
-      "highlight": ["heard"],
-      "sub": "माँ ने कभी कहा नहीं... पर मैंने सब सुन लिया।"
+      "highlight": [
+        "heard"
+      ],
+      "sub": "माँ ने कभी कहा नहीं... पर मैंने सब सुन लिया।",
+      "image": "images/002-06-hands.jpg",
+      "motion": {
+        "kind": "pull",
+        "focus": [
+          0.5,
+          0.75
+        ],
+        "from": 1.24,
+        "to": 1.05
+      }
     }
   ],
   "sfx": [
-    {"src": "audio/sfx/hit.mp3", "line": 0, "at": 0.0, "volume": 0.5},
-    {"src": "audio/sfx/whoosh-air.mp3", "line": 1, "at": 0.0, "volume": 0.35},
-    {"src": "audio/sfx/whoosh-air.mp3", "line": 3, "at": 0.0, "volume": 0.3},
-    {"src": "audio/sfx/warm-swell.mp3", "line": 5, "at": 0.0, "volume": 0.5},
-    {"src": "audio/sfx/chime.mp3", "line": "end", "at": 0.05, "volume": 0.5}
+    {
+      "src": "audio/sfx/hit.mp3",
+      "line": 0,
+      "at": 0.0,
+      "volume": 0.5
+    },
+    {
+      "src": "audio/sfx/whoosh-air.mp3",
+      "line": 1,
+      "at": 0.0,
+      "volume": 0.35
+    },
+    {
+      "src": "audio/sfx/whoosh-air.mp3",
+      "line": 3,
+      "at": 0.0,
+      "volume": 0.3
+    },
+    {
+      "src": "audio/sfx/warm-swell.mp3",
+      "line": 5,
+      "at": 0.0,
+      "volume": 0.5
+    },
+    {
+      "src": "audio/sfx/chime.mp3",
+      "line": "end",
+      "at": 0.05,
+      "volume": 0.5
+    }
   ],
   "endCards": {
     "youtube": {
@@ -64,8 +165,15 @@
   "thumbnail": {
     "line1": "Maa always said",
     "line2": "she wasn't hungry.",
-    "highlight": ["hungry."],
+    "highlight": [
+      "hungry."
+    ],
     "sub": "माँ ने कहा था, मुझे भूख नहीं है।",
-    "seconds": 0
+    "seconds": 1,
+    "image": "images/002-07-cover.jpg",
+    "focus": [
+      0.5,
+      0.52
+    ]
   }
 }

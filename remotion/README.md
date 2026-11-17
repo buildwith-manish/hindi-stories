@@ -13,15 +13,15 @@ npm run studio
 ```
 
 ## Make a video
-1. Copy `stories/001-papa-bus-pass.json` to a new file and change the lines.
-2. (Optional) Get the voice text: `npm run voice -- stories/002-your-story.json`, paste it into your TTS tool, and save the mp3 in `public/audio/`.
-3. Add `"audio": "audio/002.mp3"` to the JSON. Caption timing then follows the voice length.
-4. Render: `npm run render -- stories/002-your-story.json` makes two videos:
+1. Copy `stories/002-maa-not-hungry.json` to a new file and change the lines.
+2. (Optional) Get the voice text: `npm run voice -- stories/003-your-story.json`, paste it into your TTS tool, and save the mp3 in `public/audio/`.
+3. Add `"audio": "audio/003.wav"` to the JSON. Caption timing then follows the voice length.
+4. Render: `npm run render -- stories/003-your-story.json` makes two videos:
    - `out/<id>-youtube.mp4` for YouTube Shorts
    - `out/<id>-reels.mp4` for Instagram Reels and Facebook Reels
 
 Only one platform: add `--only=youtube` or `--only=meta`.
-Render several at once: `npm run render -- stories/002.json stories/003.json`
+Render several at once: `npm run render -- stories/003.json stories/004.json`
 In `npm run studio` you will see two compositions, `StoryYouTube` and `StoryMeta`.
 
 ## Story fields

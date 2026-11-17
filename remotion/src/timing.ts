@@ -9,7 +9,7 @@ export const K = FPS / BASE_FPS;
 /** Short lead-in: the hook is on screen almost at once, so a viewer can't swipe away before it starts. */
 export const INTRO_S = 0.25;
 /** YouTube's card is short: Shorts loop, and a long tail drags down how much of the video people watch. */
-export const END_CARD_S: Record<Platform, number> = {youtube: 3.0, meta: 3.8};
+export const END_CARD_S: Record<Platform, number> = {youtube: 2.0, meta: 3.0};
 
 const words = (t: string) => t.trim().split(/\s+/).filter(Boolean).length;
 

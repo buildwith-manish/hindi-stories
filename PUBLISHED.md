@@ -35,6 +35,6 @@ Log of every video uploaded, with the git tag that pins the exact project state 
 | | |
 |---|---|
 | Story file | `remotion/stories/002-maa-not-hungry.json` (script, captions, sound effects, end cards ready) |
-| Still needed | voiceover `remotion/public/audio/002.wav`, images in `remotion/public/images/002-*.jpg`, then add `"audio"` and image lines to the JSON |
+| Still needed | 7 images (prompts in `remotion/stories/002-image-prompts.md`), voiceover `remotion/public/audio/002.wav` + `"audio"` line in the JSON |
 | Target | about 20 s, voice from the first frame, end card about 1.5 s |
 | Git tag | add `short-002` when uploaded |
