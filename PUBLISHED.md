@@ -30,12 +30,26 @@ Log of every video uploaded, with the git tag that pins the exact project state 
 
 **Rule:** name each voiceover `002.wav`, `003.wav` and so on. Never overwrite an old one.
 
-## Short #2 — Maa said she wasn't hungry  (in progress)
+## Short #2 — Maa said she wasn't hungry  (`short-002`)
 
 | | |
 |---|---|
-| Story file | `remotion/stories/002-maa-not-hungry.json` (script, captions, sound effects, end cards ready) |
-| Voiceover | `remotion/public/audio/002.wav` (processed: pauses tightened, -15.7 LUFS); untouched original in `voiceover-originals/002-original.mp3` |
-| Still needed | replace the 7 images with 2x upscales (same filenames), then render, check, upload |
-| Target | about 20 s, voice from the first frame, end card about 1.5 s |
-| Git tag | add `short-002` when uploaded |
+| Story file | `remotion/stories/002-maa-not-hungry.json` |
+| On-screen hook | "Maa always said she wasn't hungry." |
+| Format | 1080x1920, 60 fps, H.264 CRF 16; about 26 s (YouTube) |
+| Voiceover | `remotion/public/audio/002.wav` (processed: pauses tightened, -15.7 LUFS); original in `voiceover-originals/002-original.mp3` |
+| Images | 7 files `002-01` to `002-07`, upscaled to 1620x2880 |
+| Git tag | `short-002` (commit `36563a0`) |
+
+**Result after about 18 hours (reported):** 8 views. Likely a reach/visibility problem rather than only the story; check the Reach tab (impressions) and the video's restrictions in YouTube Studio.
+
+**Where the Short #2 files are now:** removed from `main` to keep it clean for Short #3. All of them live in the `short-002` tag. Restore with `git checkout short-002 -- <path>`.
+
+## Short #3 — Maa har raat 2 baje uthti thi  (in progress)
+
+| | |
+|---|---|
+| Story file | `remotion/stories/003-maa-2-baje.json` (script, captions, sound effects, end cards ready; cool night tint) |
+| Scripts | `003-voiceover.md` (emotion tags) and `003-image-prompts.md` (7 images) in `remotion/stories/` |
+| Still needed | 7 images `003-01` to `003-07` (the 7th is the thumbnail only), voiceover `003.wav` + `"audio"` line, then render and upload |
+| Git tag | add `short-003` when uploaded |

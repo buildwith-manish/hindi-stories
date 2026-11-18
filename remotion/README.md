@@ -13,7 +13,7 @@ npm run studio
 ```
 
 ## Make a video
-1. Copy `stories/002-maa-not-hungry.json` to a new file and change the lines.
+1. Copy `stories/003-maa-2-baje.json` to a new file and change the lines.
 2. (Optional) Get the voice text: `npm run voice -- stories/003-your-story.json`, paste it into your TTS tool, and save the mp3 in `public/audio/`.
 3. Add `"audio": "audio/003.wav"` to the JSON. Caption timing then follows the voice length.
 4. Render: `npm run render -- stories/003-your-story.json` makes two videos:

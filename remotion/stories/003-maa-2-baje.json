@@ -1,0 +1,166 @@
+{
+  "id": "003-maa-2-baje",
+  "style": "centered",
+  "tint": "cool",
+  "music": "audio/music-warm-01.mp3",
+  "musicVolume": 0.16,
+  "musicDuck": 0.5,
+  "sfxDuck": 0.65,
+  "lines": [
+    {
+      "hook": true,
+      "image": "images/003-01-bedside.jpg",
+      "imageOpacity": 0.9,
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.3
+        ],
+        "from": 1.04,
+        "to": 1.2
+      },
+      "voice": "Maa har raat 2 baje uthti thi.",
+      "caption": "Maa woke up at 2 AM every night.",
+      "highlight": [
+        "2",
+        "AM"
+      ],
+      "sub": "माँ हर रात 2 बजे उठती थी।"
+    },
+    {
+      "image": "images/003-02-corridor.jpg",
+      "motion": {
+        "kind": "drift",
+        "focus": [
+          0.5,
+          0.4
+        ],
+        "from": 1.14,
+        "to": 1.14
+      },
+      "voice": "Main sochta tha, woh paani peene uthti hai.",
+      "caption": "I thought she woke up for water.",
+      "highlight": [
+        "water."
+      ],
+      "sub": "मैं सोचता था, वो पानी पीने उठती है।"
+    },
+    {
+      "image": "images/003-03-lane.jpg",
+      "mist": true,
+      "imageOpacity": 0.85,
+      "motion": {
+        "kind": "pull",
+        "focus": [
+          0.5,
+          0.75
+        ],
+        "from": 1.22,
+        "to": 1.05
+      },
+      "voice": "Phir mujhe night shift mili. Ghar lautne mein roz der hoti.",
+      "caption": "Then I got a night shift. I got home late, every day.",
+      "highlight": [
+        "night",
+        "late,"
+      ],
+      "sub": "फिर मुझे नाइट शिफ्ट मिली। घर लौटने में रोज़ देर होती।"
+    },
+    {
+      "image": "images/003-04-covered-plate.jpg",
+      "flicker": true,
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.74
+        ],
+        "from": 1.03,
+        "to": 1.22
+      },
+      "voice": "Roz raat 2 baje, rasoi ki batti jalti milti... aur ek thaali, doosri thaali se dhaki hui.",
+      "caption": "Every night at 2, the kitchen light was on. And a plate, covered by another plate.",
+      "highlight": [
+        "covered"
+      ],
+      "sub": "रोज़ रात 2 बजे, रसोई की बत्ती जलती मिलती... और एक थाली, दूसरी थाली से ढकी हुई।"
+    },
+    {
+      "image": "images/003-05-pretending.jpg",
+      "imageOpacity": 0.82,
+      "motion": {
+        "kind": "drift",
+        "focus": [
+          0.4,
+          0.72
+        ],
+        "from": 1.12,
+        "to": 1.12
+      },
+      "voice": "Maa so rahi hoti thi... par khaana abhi bhi garam hota tha.",
+      "caption": "Maa looked asleep... but the food was still warm.",
+      "highlight": [
+        "warm."
+      ],
+      "sub": "माँ सो रही होती थी... पर खाना अभी भी गरम होता था।"
+    },
+    {
+      "image": "images/003-06-chair.jpg",
+      "flicker": true,
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.74
+        ],
+        "from": 1.04,
+        "to": 1.24
+      },
+      "voice": "Woh paani peene nahi uthti thi... woh mera intezaar karti thi.",
+      "caption": "She never woke up for water. She woke up to wait for me.",
+      "highlight": [
+        "wait"
+      ],
+      "sub": "वो पानी पीने नहीं उठती थी... वो मेरा इंतज़ार करती थी।"
+    }
+  ],
+  "sfx": [
+    {
+      "src": "audio/sfx/hit.mp3",
+      "line": 0,
+      "at": 0.0,
+      "volume": 0.45
+    },
+    {
+      "src": "audio/sfx/whoosh-air.mp3",
+      "line": 2,
+      "at": 0.0,
+      "volume": 0.3
+    },
+    {
+      "src": "audio/sfx/warm-swell.mp3",
+      "line": 3,
+      "at": 0.0,
+      "volume": 0.45
+    },
+    {
+      "src": "audio/sfx/chime.mp3",
+      "line": "end",
+      "at": 0.05,
+      "volume": 0.5
+    }
+  ],
+  "endCards": {
+    "youtube": {
+      "line": "Kya aapki Maa bhi raat ko jaagti thi? Tell us in the comments.",
+      "sub": "क्या आपकी माँ भी आपके लिए रात को जागती थी?",
+      "cta": "Subscribe for the next unsaid story"
+    },
+    "meta": {
+      "line": "Send this to the one who waits up for you.",
+      "sub": "इसे उसे भेजिए, जो आपके लिए रात को जागता है।",
+      "cta": "Follow for a new unsaid story"
+    }
+  }
+}

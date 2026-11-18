@@ -1,4 +1,4 @@
-// Usage: npm run render -- stories/002-maa-not-hungry.json [more.json ...] [--only=youtube|meta] [--concurrency=4]
+// Usage: npm run render -- stories/003-maa-2-baje.json [more.json ...] [--only=youtube|meta] [--concurrency=4]
 // Renders each story twice (1080x1920, H.264), once per platform:
 //   out/<id>-youtube.mp4   YouTube Shorts (comment + Subscribe end card)
 //   out/<id>-reels.mp4     Instagram Reels / Facebook Reels (Send + Save + Follow end card)
@@ -18,7 +18,7 @@ if (!/^[1-9][0-9]*$/.test(concurrency)) {
 }
 
 if (files.length === 0 || (only && !['youtube', 'meta'].includes(only))) {
-  console.error('Usage: npm run render -- stories/002-maa-not-hungry.json [more.json ...] [--only=youtube|meta] [--concurrency=4]');
+  console.error('Usage: npm run render -- stories/003-maa-2-baje.json [more.json ...] [--only=youtube|meta] [--concurrency=4]');
   process.exit(1);
 }
 
