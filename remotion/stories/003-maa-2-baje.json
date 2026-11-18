@@ -2,6 +2,7 @@
   "id": "003-maa-2-baje",
   "style": "centered",
   "tint": "cool",
+  "audio": "audio/003.wav",
   "music": "audio/music-warm-01.mp3",
   "musicVolume": 0.16,
   "musicDuck": 0.5,
@@ -21,12 +22,12 @@
         "to": 1.2
       },
       "voice": "Maa har raat 2 baje uthti thi.",
-      "caption": "Maa woke up at 2 AM every night.",
+      "caption": "Maa woke up at 2 AM every night.",
       "highlight": [
-        "2",
-        "AM"
+        "2 AM"
       ],
-      "sub": "माँ हर रात 2 बजे उठती थी।"
+      "sub": "माँ हर रात 2 बजे उठती थी।",
+      "seconds": 2.62
     },
     {
       "image": "images/003-02-corridor.jpg",
@@ -44,7 +45,8 @@
       "highlight": [
         "water."
       ],
-      "sub": "मैं सोचता था, वो पानी पीने उठती है।"
+      "sub": "मैं सोचता था, वो पानी पीने उठती है।",
+      "seconds": 2.63
     },
     {
       "image": "images/003-03-lane.jpg",
@@ -65,7 +67,8 @@
         "night",
         "late,"
       ],
-      "sub": "फिर मुझे नाइट शिफ्ट मिली। घर लौटने में रोज़ देर होती।"
+      "sub": "फिर मुझे नाइट शिफ्ट मिली। घर लौटने में रोज़ देर होती।",
+      "seconds": 4.06
     },
     {
       "image": "images/003-04-hot-water.jpg",
@@ -84,7 +87,8 @@
       "highlight": [
         "steaming."
       ],
-      "sub": "रोज़ रात 2 बजे, रसोई की बत्ती जलती मिलती... और एक गिलास गरम पानी, भाप उठती हुई।"
+      "sub": "रोज़ रात 2 बजे, रसोई की बत्ती जलती मिलती... और एक गिलास गरम पानी, भाप उठती हुई।",
+      "seconds": 7.45
     },
     {
       "image": "images/003-05-pretending.jpg",
@@ -103,7 +107,8 @@
       "highlight": [
         "hot."
       ],
-      "sub": "माँ सो रही होती थी... पर पानी अभी भी गरम था।"
+      "sub": "माँ सो रही होती थी... पर पानी अभी भी गरम था।",
+      "seconds": 4.27
     },
     {
       "image": "images/003-06-chair.jpg",
@@ -121,7 +126,8 @@
       "highlight": [
         "wait"
       ],
-      "sub": "वो पानी पीने नहीं उठती थी... वो मेरा इंतज़ार करती थी।"
+      "sub": "वो पानी पीने नहीं उठती थी... वो मेरा इंतज़ार करती थी।",
+      "seconds": 4.47
     }
   ],
   "sfx": [
@@ -161,5 +167,29 @@
       "sub": "इसे उसे भेजिए, जो आपके लिए रात को जागता है।",
       "cta": "Follow for a new unsaid story"
     }
+  },
+  "voiceSpans": [
+    [
+      0.0,
+      22.98
+    ],
+    [
+      23.67,
+      25.37
+    ]
+  ],
+  "thumbnail": {
+    "line1": "Maa woke at 2 AM.",
+    "line2": "I thought it was water.",
+    "highlight": [
+      "water."
+    ],
+    "sub": "माँ हर रात 2 बजे उठती थी।",
+    "image": "images/003-01-bedside.jpg",
+    "focus": [
+      0.5,
+      0.58
+    ],
+    "seconds": 0
   }
 }

@@ -52,5 +52,7 @@ Log of every video uploaded, with the git tag that pins the exact project state 
 | Story file | `remotion/stories/003-maa-2-baje.json` (script, captions, sound effects, end cards ready; cool night tint) |
 | Scripts | `003-voiceover.md` (emotion tags) and `003-image-prompts.md` (7 images) in `remotion/stories/` |
 | Images | 7 files in `remotion/public/images/` (768x1344 for now; 003-07 is thumbnail only and its clock reads 10:05, not 2:00) |
-| Still needed | upscale images to 1620x2880 (same filenames), record voiceover `003.wav`, then sync, render and upload |
+| Voiceover | `remotion/public/audio/003.wav` (processed: pauses tightened, -15.4 LUFS), synced to all 6 lines; original recording in `voiceover-originals/003-original.mp3` |
+| Thumbnail | rendered from the project template (`003-maa-2-baje-thumbnail.png`, 1080x1920) |
+| Still needed | upscale images to 1620x2880 (same filenames) and re-render, then upload and tag `short-003` |
 | Git tag | add `short-003` when uploaded |

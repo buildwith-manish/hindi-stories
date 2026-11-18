@@ -28,7 +28,11 @@ starts = [float(v) for v in re.findall(r'silence_start: ([\d.]+)', log)]
 ends = [float(v) for v in re.findall(r'silence_end: ([\d.]+)', log)]
 gaps = [(a, b) for a, b in zip(starts, ends)]          # inner gaps only (file starts and ends in speech)
 
-keep, cursor, removed = [], 0.0, []                    # removed: (orig_start, orig_end_of_removed_piece)
+# leading silence: the voice must start on the very first frame
+env = np.sqrt(np.convolve(x ** 2, np.ones(441) / 441, mode='same'))
+onset = float(np.argmax(env > 10 ** (-45 / 20))) / SR
+lead = max(0.0, onset - 0.03)
+keep, cursor, removed = [], lead, ([(0.0, lead)] if lead > 0.005 else [])   # removed: (orig_start, orig_end)
 for i, (a, b) in enumerate(gaps):
     d = b - a
     t = targets[i] if i < len(targets) else d
