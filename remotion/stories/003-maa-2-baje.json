@@ -15,7 +15,7 @@
         "kind": "push",
         "focus": [
           0.5,
-          0.3
+          0.42
         ],
         "from": 1.04,
         "to": 1.2
@@ -34,7 +34,7 @@
         "kind": "drift",
         "focus": [
           0.5,
-          0.4
+          0.5
         ],
         "from": 1.14,
         "to": 1.14
@@ -51,13 +51,13 @@
       "mist": true,
       "imageOpacity": 0.85,
       "motion": {
-        "kind": "pull",
+        "kind": "push",
         "focus": [
           0.5,
-          0.75
+          0.62
         ],
-        "from": 1.22,
-        "to": 1.05
+        "from": 1.03,
+        "to": 1.2
       },
       "voice": "Phir mujhe night shift mili. Ghar lautne mein roz der hoti.",
       "caption": "Then I got a night shift. I got home late, every day.",
@@ -68,54 +68,53 @@
       "sub": "फिर मुझे नाइट शिफ्ट मिली। घर लौटने में रोज़ देर होती।"
     },
     {
-      "image": "images/003-04-covered-plate.jpg",
+      "image": "images/003-04-hot-water.jpg",
       "flicker": true,
       "motion": {
-        "kind": "push",
+        "kind": "pull",
         "focus": [
-          0.5,
-          0.74
+          0.52,
+          0.6
         ],
-        "from": 1.03,
-        "to": 1.22
+        "from": 1.22,
+        "to": 1.03
       },
-      "voice": "Roz raat 2 baje, rasoi ki batti jalti milti... aur ek thaali, doosri thaali se dhaki hui.",
-      "caption": "Every night at 2, the kitchen light was on. And a plate, covered by another plate.",
+      "voice": "Roz raat 2 baje, rasoi ki batti jalti milti... aur ek glass garam paani, bhaap uthti hui.",
+      "caption": "Every night at 2, the kitchen light was on. And a glass of hot water, still steaming.",
       "highlight": [
-        "covered"
+        "steaming."
       ],
-      "sub": "रोज़ रात 2 बजे, रसोई की बत्ती जलती मिलती... और एक थाली, दूसरी थाली से ढकी हुई।"
+      "sub": "रोज़ रात 2 बजे, रसोई की बत्ती जलती मिलती... और एक गिलास गरम पानी, भाप उठती हुई।"
     },
     {
       "image": "images/003-05-pretending.jpg",
-      "imageOpacity": 0.82,
-      "motion": {
-        "kind": "drift",
-        "focus": [
-          0.4,
-          0.72
-        ],
-        "from": 1.12,
-        "to": 1.12
-      },
-      "voice": "Maa so rahi hoti thi... par khaana abhi bhi garam hota tha.",
-      "caption": "Maa looked asleep... but the food was still warm.",
-      "highlight": [
-        "warm."
-      ],
-      "sub": "माँ सो रही होती थी... पर खाना अभी भी गरम होता था।"
-    },
-    {
-      "image": "images/003-06-chair.jpg",
-      "flicker": true,
+      "imageOpacity": 0.9,
       "motion": {
         "kind": "push",
         "focus": [
-          0.5,
-          0.74
+          0.45,
+          0.57
         ],
-        "from": 1.04,
-        "to": 1.24
+        "from": 1.1,
+        "to": 1.4
+      },
+      "voice": "Maa so rahi hoti thi... par paani abhi bhi garam tha.",
+      "caption": "Maa looked asleep... but the water was still hot.",
+      "highlight": [
+        "hot."
+      ],
+      "sub": "माँ सो रही होती थी... पर पानी अभी भी गरम था।"
+    },
+    {
+      "image": "images/003-06-chair.jpg",
+      "motion": {
+        "kind": "pull",
+        "focus": [
+          0.45,
+          0.7
+        ],
+        "from": 1.26,
+        "to": 1.05
       },
       "voice": "Woh paani peene nahi uthti thi... woh mera intezaar karti thi.",
       "caption": "She never woke up for water. She woke up to wait for me.",

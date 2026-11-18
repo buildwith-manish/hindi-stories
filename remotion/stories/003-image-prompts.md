@@ -51,3 +51,19 @@ Close-up, centered: a small round bedside alarm clock glowing softly with its ha
 1. Upscale all 7 to 1620 x 2880 and keep the same filenames.
 2. Record the voiceover (script in `003-voiceover.md`), then run `scripts/prepare-voice.py` or send it to me for syncing.
 3. Add `"audio": "audio/003.wav"` to `003-maa-2-baje.json` after syncing.
+
+
+---
+
+## Final images used in the video (added after generation)
+| File | What it shows |
+|---|---|
+| `003-01-bedside.jpg` | Mother sitting up on the bed in silhouette, wall clock behind |
+| `003-02-corridor.jpg` | Mother walking in silhouette toward the warm doorway |
+| `003-03-lane.jpg` | Young man with a backpack in the night lane |
+| `003-04-hot-water.jpg` | Hanging bulb and a steaming glass of water (replaces the "covered plate" shot; lines 4 and 5 were rewritten to match) |
+| `003-05-pretending.jpg` | Mother lying with eyes closed, seen through the doorway |
+| `003-06-chair.jpg` | Empty chair with a shawl in the warm room |
+| `003-07-thumbnail.jpg` | Alarm clock (thumbnail only). NOTE: the hands read about 10:05, not 2:00. Regenerate with "hour hand exactly on 2, minute hand straight up on 12" before using it with a "2 AM" title. |
+
+All files are 768x1344 for now. Upscale to 1620x2880 with the same filenames before the final render.
