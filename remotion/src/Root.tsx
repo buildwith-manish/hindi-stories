@@ -5,7 +5,7 @@ import {Story} from './Story';
 import {ThumbnailFrame} from './components/ThumbnailFrame';
 import {FPS, buildTimeline} from './timing';
 import type {StoryInput, StoryProps} from './types';
-import story from '../stories/003-maa-2-baje.json';
+import story from '../stories/004-papa-cycle.json';
 
 const calculateMetadata: CalculateMetadataFunction<StoryProps> = async ({props}) => {
   let audioSeconds: number | undefined;

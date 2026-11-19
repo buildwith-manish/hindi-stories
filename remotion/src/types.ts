@@ -88,7 +88,7 @@ export type StoryInput = {
   /** Letter style only: the salutation at the top, e.g. "Dear Papa," */
   title?: string;
   lines: StoryLine[];
-  /** Voiceover file inside public/, e.g. "audio/003.wav" */
+  /** Voiceover file inside public/, e.g. "audio/004.wav" */
   audio?: string;
   /** Background music file inside public/ */
   music?: string;

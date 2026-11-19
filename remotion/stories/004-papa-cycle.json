@@ -1,0 +1,189 @@
+{
+  "id": "004-papa-cycle",
+  "style": "centered",
+  "tint": "gold",
+  "music": "audio/music-warm-01.mp3",
+  "musicVolume": 0.16,
+  "musicDuck": 0.5,
+  "sfxDuck": 0.65,
+  "lines": [
+    {
+      "hook": true,
+      "image": "images/004-01-wiping-chain.jpg",
+      "imageOpacity": 0.9,
+      "motion": {
+        "kind": "drift",
+        "focus": [
+          0.5,
+          0.72
+        ],
+        "from": 1.14,
+        "to": 1.14
+      },
+      "voice": "Papa har Sunday meri purani cycle saaf karte the.",
+      "caption": "Papa cleaned my old cycle every Sunday.",
+      "highlight": [
+        "Sunday"
+      ],
+      "sub": "पापा हर संडे मेरी पुरानी साइकिल साफ़ करते थे।"
+    },
+    {
+      "image": "images/004-02-courtyard.jpg",
+      "mist": true,
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.72
+        ],
+        "from": 1.03,
+        "to": 1.2
+      },
+      "voice": "Main saalon se ghar mein nahi tha.",
+      "caption": "I hadn't lived at home for years.",
+      "highlight": [
+        "years."
+      ],
+      "sub": "मैं सालों से घर में नहीं था।"
+    },
+    {
+      "image": "images/004-03-city-room.jpg",
+      "imageOpacity": 0.88,
+      "motion": {
+        "kind": "pull",
+        "focus": [
+          0.5,
+          0.7
+        ],
+        "from": 1.22,
+        "to": 1.05
+      },
+      "voice": "Maine phone par poocha, \"Papa, ab kyun?\" Woh bole, \"Bas aise hi.\"",
+      "caption": "I asked on the phone, \"Papa, why now?\" He said, \"Just like that.\"",
+      "highlight": [
+        "why"
+      ],
+      "sub": "मैंने फ़ोन पर पूछा, \"पापा, अब क्यों?\" वो बोले, \"बस ऐसे ही।\""
+    },
+    {
+      "image": "images/004-04-gleaming.jpg",
+      "glow": [
+        0.8,
+        0.18
+      ],
+      "motion": {
+        "kind": "push",
+        "focus": [
+          0.5,
+          0.74
+        ],
+        "from": 1.03,
+        "to": 1.22
+      },
+      "voice": "Is baar ghar gaya... cycle chamak rahi thi. Chain mein tel tha, tyres mein hawa.",
+      "caption": "This time I went home... the cycle was shining. Oiled chain, full tyres.",
+      "highlight": [
+        "shining."
+      ],
+      "sub": "इस बार घर गया... साइकिल चमक रही थी। चेन में तेल था, टायरों में हवा।"
+    },
+    {
+      "image": "images/004-05-handlebar.jpg",
+      "motion": {
+        "kind": "drift",
+        "focus": [
+          0.5,
+          0.7
+        ],
+        "from": 1.14,
+        "to": 1.14
+      },
+      "voice": "Jaise maine kal hi chalayi ho.",
+      "caption": "As if I had ridden it yesterday.",
+      "highlight": [
+        "yesterday."
+      ],
+      "sub": "जैसे मैंने कल ही चलाई हो।"
+    },
+    {
+      "image": "images/004-06-papa-step.jpg",
+      "glow": [
+        0.75,
+        0.15
+      ],
+      "motion": {
+        "kind": "pull",
+        "focus": [
+          0.5,
+          0.74
+        ],
+        "from": 1.26,
+        "to": 1.05
+      },
+      "voice": "Woh cycle nahi saaf karte the... woh meri wapsi ki taiyaari karte the.",
+      "caption": "He wasn't cleaning a cycle. He was preparing for my return.",
+      "highlight": [
+        "return."
+      ],
+      "sub": "वो साइकिल नहीं साफ़ करते थे... वो मेरी वापसी की तैयारी करते थे।"
+    }
+  ],
+  "sfx": [
+    {
+      "src": "audio/sfx/birds-dawn.mp3",
+      "line": 0,
+      "at": 0.0,
+      "volume": 0.22
+    },
+    {
+      "src": "audio/sfx/hit.mp3",
+      "line": 0,
+      "at": 0.0,
+      "volume": 0.4
+    },
+    {
+      "src": "audio/sfx/whoosh-air.mp3",
+      "line": 2,
+      "at": 0.0,
+      "volume": 0.3
+    },
+    {
+      "src": "audio/sfx/warm-swell.mp3",
+      "line": 4,
+      "at": 0.0,
+      "volume": 0.45
+    },
+    {
+      "src": "audio/sfx/chime.mp3",
+      "line": "end",
+      "at": 0.05,
+      "volume": 0.5
+    }
+  ],
+  "endCards": {
+    "youtube": {
+      "line": "Aapke Papa ne aapke liye chupke se kya kiya? Tell us in the comments.",
+      "sub": "आपके पापा ने आपके लिए चुपके से क्या किया?",
+      "cta": "Subscribe for the next unsaid story"
+    },
+    "meta": {
+      "line": "Send this to your Papa.",
+      "sub": "इसे अपने पापा को भेजिए।",
+      "cta": "Follow for a new unsaid story"
+    }
+  },
+  "thumbnail": {
+    "line1": "Papa cleaned my cycle.",
+    "line2": "I wasn't even home.",
+    "highlight": [
+      "home."
+    ],
+    "sub": "पापा हर संडे मेरी साइकिल साफ़ करते थे।",
+    "image": "images/004-07-thumbnail.jpg",
+    "focus": [
+      0.5,
+      0.52
+    ],
+    "seconds": 0
+  }
+}

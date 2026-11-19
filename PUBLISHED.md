@@ -45,14 +45,25 @@ Log of every video uploaded, with the git tag that pins the exact project state 
 
 **Where the Short #2 files are now:** removed from `main` to keep it clean for Short #3. All of them live in the `short-002` tag. Restore with `git checkout short-002 -- <path>`.
 
-## Short #3 — Maa har raat 2 baje uthti thi  (in progress)
+## Short #3 — Maa har raat 2 baje uthti thi  (`short-003`)
 
 | | |
 |---|---|
-| Story file | `remotion/stories/003-maa-2-baje.json` (script, captions, sound effects, end cards ready; cool night tint) |
-| Scripts | `003-voiceover.md` (emotion tags) and `003-image-prompts.md` (7 images) in `remotion/stories/` |
-| Images | 7 files in `remotion/public/images/` (768x1344 for now; 003-07 is thumbnail only and its clock reads 10:05, not 2:00) |
-| Voiceover | `remotion/public/audio/003.wav` (processed: pauses tightened, -15.4 LUFS), synced to all 6 lines; original recording in `voiceover-originals/003-original.mp3` |
-| Thumbnail | rendered from the project template (`003-maa-2-baje-thumbnail.png`, 1080x1920) |
-| Still needed | upscale images to 1620x2880 (same filenames) and re-render, then upload and tag `short-003` |
-| Git tag | add `short-003` when uploaded |
+| Story file | `remotion/stories/003-maa-2-baje.json` |
+| On-screen hook | "Maa woke up at 2 AM every night." |
+| Format | 1080x1920, 60 fps, H.264 CRF 16; about 29 s (YouTube), about 30 s (Reels) |
+| Voiceover | `remotion/public/audio/003.wav` (processed, -15.4 LUFS); original in `voiceover-originals/003-original.mp3` |
+| Images | 7 files `003-01` to `003-07` (768x1344), thumbnail copy "Maa woke at 2 AM. / I thought it was water." |
+| Git tag | `short-003` (commit `046eb98`) |
+| Posted | scheduled 18 Nov 2026, 20:00 IST on YouTube, Instagram and Facebook |
+
+**Where the Short #3 files are now:** removed from `main` to keep it clean for Short #4. All of them live in the `short-003` tag. Restore with `git checkout short-003 -- <path>`.
+
+## Short #4 — Papa har Sunday meri purani cycle saaf karte the  (in progress)
+
+| | |
+|---|---|
+| Story file | `remotion/stories/004-papa-cycle.json` (script, captions, sound effects, end cards, thumbnail copy ready; gold morning tint) |
+| Scripts | `004-voiceover.md` (emotion tags, male narrator) and `004-image-prompts.md` (7 images) in `remotion/stories/` |
+| Still needed | 7 images `004-01` to `004-07` (the 7th is the thumbnail only), voiceover `004.wav`, then sync, render and upload |
+| Git tag | add `short-004` when uploaded |

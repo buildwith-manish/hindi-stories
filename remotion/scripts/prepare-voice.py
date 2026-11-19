@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tightens a voiceover and sets its loudness. Does NOT change any word.
 
-  python3 scripts/prepare-voice.py in.mp3 public/audio/003.wav 0.6,0.5,0.39,...
+  python3 scripts/prepare-voice.py in.mp3 public/audio/004.wav 0.6,0.5,0.39,...
 
 - finds the silent gaps (>= 0.18 s below -38 dB),
 - shortens each gap to the target given (a gap already shorter is left alone),
