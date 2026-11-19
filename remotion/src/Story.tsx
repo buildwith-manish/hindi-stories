@@ -149,6 +149,9 @@ export const Story: React.FC<StoryProps> = (props) => {
         <Audio
           src={staticFile(props.music)}
           loop
+          // Without this, a render restarts the volume curve (fade-in and ducking) every time the music loops;
+          // the preview doesn't, which is why the mix only went wrong in the rendered video.
+          loopVolumeCurveBehavior="extend"
           volume={(f) =>
             duckAt(f, musicDuck) *
             interpolate(f, [0, 30 * K, durationInFrames - 45 * K, durationInFrames], [0, musicVolume, musicVolume, 0], {
