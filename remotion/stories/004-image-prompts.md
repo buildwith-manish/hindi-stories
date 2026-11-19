@@ -54,3 +54,19 @@ Centered: the sky-blue cycle standing alone, seen from the side, in a single sha
 1. Upscale all 7 to 1620 x 2880 and keep the same filenames.
 2. Record the voiceover (script in `004-voiceover.md`). Use a MALE narrator voice (the story says "main", a son).
 3. Send me the voice file for tightening, syncing and rendering.
+
+
+---
+
+## Final images used in the video (added after generation)
+| File | What it shows |
+|---|---|
+| `004-01-wiping-chain.jpg` | Papa wiping the cycle chain with a cloth, courtyard behind him |
+| `004-02-courtyard.jpg` | The empty courtyard, only a plant on a stand (line 2: "I hadn't lived at home") |
+| `004-03-cycle-yard.jpg` | The same courtyard with the cycle and its long shadow (line 3: the phone call). This replaces the planned city-room shot; the cut from the empty courtyard to the same view with the cycle works as a gentle reveal. |
+| `004-04-gleaming.jpg` | Low-angle cycle in sun with a lens flare |
+| `004-05-handlebar.jpg` | The son from behind with his hand on the handlebar, a cloth on the seat |
+| `004-06-papa-step.jpg` | Papa sitting on the step beside the cycle, a cloth in his hand |
+| `004-07-thumbnail.jpg` | The cycle at dusk in a beam of light (thumbnail only) |
+
+SIZES: shots 1 to 5 and the thumbnail are 572x1024; shot 6 is 1536x2752. All must be upscaled to 1620x2880 (same filenames) before the final render.

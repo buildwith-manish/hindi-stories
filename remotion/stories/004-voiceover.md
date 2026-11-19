@@ -30,8 +30,8 @@ Same words as the captions in `004-papa-cycle.json`, same order as the images. D
 | # | Image | Emotion | Target | Delivery note |
 |---|---|---|---|---|
 | 1 | Papa's hands wiping the chain | warm, matter-of-fact | about 3.2 s | Start instantly. Plant the question without sounding sad. |
-| 2 | Empty courtyard with the cycle | quiet, distant | about 2.4 s | Short and a little guilty. Let it hang. |
-| 3 | Son on the phone in a city room | casual, then gruff | about 4.4 s | Two voices: curious son, then Papa, low and brief. Papa's "बस ऐसे ही" is the key beat. |
+| 2 | The empty courtyard (the cycle is gone from the frame) | quiet, distant | about 2.4 s | Short and a little guilty. Let it hang. |
+| 3 | The cycle in the courtyard (the phone call is heard over home) | casual, then gruff | about 4.4 s | Two voices: curious son, then Papa, low and brief. Papa's "बस ऐसे ही" is the key beat. |
 | 4 | The gleaming cycle | wondering | about 5.6 s | Slow down. A smile in "चमक रही थी". |
 | 5 | Hand on the handlebar | hushed, touched | about 2.4 s | Almost to himself. |
 | 6 | Papa on the step | breaking, whisper | about 4.4 s | Voice cracks on "तैयारी". Let the last word fade. |

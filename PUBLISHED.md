@@ -65,5 +65,6 @@ Log of every video uploaded, with the git tag that pins the exact project state 
 |---|---|
 | Story file | `remotion/stories/004-papa-cycle.json` (script, captions, sound effects, end cards, thumbnail copy ready; gold morning tint) |
 | Scripts | `004-voiceover.md` (emotion tags, male narrator) and `004-image-prompts.md` (7 images) in `remotion/stories/` |
-| Still needed | 7 images `004-01` to `004-07` (the 7th is the thumbnail only), voiceover `004.wav`, then sync, render and upload |
+| Images | 7 files in `remotion/public/images/` (572x1024, except `004-06` at 1536x2752); upscale to 1620x2880 with the same filenames |
+| Still needed | voiceover `004.wav`, then sync, render and upload |
 | Git tag | add `short-004` when uploaded |

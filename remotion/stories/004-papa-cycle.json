@@ -47,16 +47,15 @@
       "sub": "मैं सालों से घर में नहीं था।"
     },
     {
-      "image": "images/004-03-city-room.jpg",
-      "imageOpacity": 0.88,
+      "image": "images/004-03-cycle-yard.jpg",
       "motion": {
-        "kind": "pull",
+        "kind": "push",
         "focus": [
-          0.5,
-          0.7
+          0.55,
+          0.68
         ],
-        "from": 1.22,
-        "to": 1.05
+        "from": 1.03,
+        "to": 1.2
       },
       "voice": "Maine phone par poocha, \"Papa, ab kyun?\" Woh bole, \"Bas aise hi.\"",
       "caption": "I asked on the phone, \"Papa, why now?\" He said, \"Just like that.\"",
