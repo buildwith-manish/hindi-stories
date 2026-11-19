@@ -50,7 +50,9 @@ const Line: React.FC<{line: StoryLine; duration: number; isLast: boolean}> = ({l
           textWrap: 'balance',
           color: isLast ? '#FFD9A0' : '#FBE8C8',
           textShadow: '0 2px 5px rgba(0,0,0,0.65), 0 6px 34px rgba(0,0,0,0.75)',
-          letterSpacing: `${tracking}em`,
+          // Settle in by scaling, not by animating letter-spacing: changing the spacing changes the width,
+          // so long captions re-wrapped (3 lines -> 2 lines) in the middle of the animation.
+          transform: `scale(${1 + tracking})`,
         }}
       >
         {words.map((w, i) => {
