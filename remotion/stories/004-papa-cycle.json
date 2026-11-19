@@ -5,8 +5,8 @@
   "audio": "audio/004.wav",
   "music": "audio/music-warm-01.mp3",
   "musicVolume": 0.16,
-  "musicDuck": 0.5,
-  "sfxDuck": 0.65,
+  "musicDuck": 0.4,
+  "sfxDuck": 0.3,
   "lines": [
     {
       "hook": true,
@@ -139,7 +139,7 @@
       "src": "audio/sfx/birds-dawn.mp3",
       "line": 0,
       "at": 0.0,
-      "volume": 0.22
+      "volume": 0.16
     },
     {
       "src": "audio/sfx/hit.mp3",
@@ -151,13 +151,13 @@
       "src": "audio/sfx/whoosh-air.mp3",
       "line": 2,
       "at": 0.0,
-      "volume": 0.3
+      "volume": 0.22
     },
     {
       "src": "audio/sfx/warm-swell.mp3",
       "line": 4,
       "at": 0.0,
-      "volume": 0.45
+      "volume": 0.3
     },
     {
       "src": "audio/sfx/chime.mp3",
